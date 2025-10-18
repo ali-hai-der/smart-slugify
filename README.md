@@ -2,7 +2,8 @@
 
 A lightweight (0 dependency), smart Python library for converting text into URL-friendly slugs with Unicode support, accent normalization, and customizable options.
 
-[![CI](https://github.com/ali-hai-der/smart-slugify/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/smart-slugify/actions/workflows/ci.yml)
+[![CI](https://github.com/ali-hai-der/smart-slugify/actions/workflows/ci.yml/badge.svg)](https://github.com/ali-hai-der/smart-slugify/actions/workflows/ci.yml)
+[![PyPI version](https://badge.fury.io/py/smart-slugify.svg)](https://badge.fury.io/py/smart-slugify)
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,18 +17,18 @@ A lightweight (0 dependency), smart Python library for converting text into URL-
 
 ## Installation
 
-### From Source
-
-```bash
-git clone https://github.com/yourusername/smart-slugify.git
-cd smart-slugify
-pip install -e .
-```
-
-### Using pip (once published to PyPI)
+### Using pip
 
 ```bash
 pip install smart-slugify
+```
+
+### From Source
+
+```bash
+git clone https://github.com/ali-hai-der/smart-slugify.git
+cd smart-slugify
+pip install -e .
 ```
 
 ## Quick Start
