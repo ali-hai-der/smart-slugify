@@ -9,6 +9,8 @@ I've created two publishing workflows:
 1. **`publish.yml`** - Publishes on every push to main (when src/ or pyproject.toml changes)
 2. **`publish-on-tag.yml`** - Publishes only when you create version tags (RECOMMENDED)
 
+**Important:** Both workflows run the full test suite (18 test combinations across 3 operating systems and 6 Python versions) before publishing. Publishing only happens if all tests pass.
+
 ## Setup Instructions
 
 ### Step 1: Create a PyPI Account
@@ -92,12 +94,22 @@ After the first manual upload, GitHub Actions will work automatically.
 
 ### What Happens in the Workflow
 
+**Test Phase** (runs first):
 1. ✅ Checks out your code
-2. ✅ Sets up Python 3.11
-3. ✅ Installs build dependencies (`build`, `twine`)
-4. ✅ Builds the package (creates `.whl` and `.tar.gz` files)
-5. ✅ Checks package integrity with `twine check`
-6. ✅ Uploads to PyPI using your API token
+2. ✅ Sets up Python (3.7, 3.8, 3.9, 3.10, 3.11, 3.12)
+3. ✅ Tests on Ubuntu, macOS, and Windows
+4. ✅ Installs dependencies and package
+5. ✅ Runs all tests with pytest
+
+**Publish Phase** (only if ALL tests pass):
+6. ✅ Checks out your code
+7. ✅ Sets up Python 3.11
+8. ✅ Installs build dependencies (`build`, `twine`)
+9. ✅ Builds the package (creates `.whl` and `.tar.gz` files)
+10. ✅ Checks package integrity with `twine check`
+11. ✅ Uploads to PyPI using your API token
+
+If any test fails, the workflow stops and publishing is skipped.
 
 ### Monitoring Deployments
 
